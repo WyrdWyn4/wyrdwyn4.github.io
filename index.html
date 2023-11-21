@@ -1,229 +1,237 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            color: #333;
-            transition: background-color 0.3s ease;
-        }
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Forty by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
 
-        h1 {
-            text-align: center;
-            margin: 20px 0;
-            font-size: 36px;
-            color: #2c3e50;
-            transition: color 0.3s ease;
-        }
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
+				<!-- Header -->
+					<header id="header" class="alt">
+						<a href="index.html" class="logo"><strong>Waleed Mannan Khan Sherwani</strong></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
 
-        li {
-            padding: 10px;
-            margin: 5px 0;
-            background-color: #fff;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="landing.html">Landing</a></li>
+							<li><a href="generic.html">Generic</a></li>
+							<li><a href="elements.html">Elements</a></li>
+						</ul>
+						<ul class="actions stacked">
+							<li><a href="#" class="button primary fit">Get Started</a></li>
+							<li><a href="#" class="button fit">Log In</a></li>
+						</ul>
+					</nav>
 
-        li:hover {
-            background-color: #ecf0f1;
-        }
+				<!-- Banner -->
+					<section id="banner" class="major">
+						<div class="inner">
+							<header class="major">
+								<h1 id="welcome-text"></h1>
+							</header>
+						</div>
+					</section>
 
-        label {
-            margin-left: 10px;
-            cursor: pointer;
-            font-size: 18px; /* Adjusted font size for labels */
-        }
+				<!-- Main -->
+					<div id="main">
 
-        input[type="checkbox"] {
-            margin-right: 10px;
-        }
+						<!-- One -->
+							<section id="one" class="tiles">
+								<article>
+									<span class="image">
+										<img src="images/pic01.jpg" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="landing.html" class="link">Experience</a></h3>
+										<p>Through diverse roles and responsibilities</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="images/pic02.jpg" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="landing.html" class="link">Projects</a></h3>
+										<p>A selection of my key projects</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="images/pic03.jpg" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="landing.html" class="link">Achievements</a></h3>
+										<p>Celebrating milestones and recognition</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="images/pic04.jpg" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="landing.html" class="link">Courses</a></h3>
+										<p>A commitment to continuous learning</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="images/pic05.jpg" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="landing.html" class="link">Skills</a></h3>
+										<p>Encompassing Essentials</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="images/pic06.jpg" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="landing.html" class="link">Other</a></h3>
+										<p>Beyond the professional realm</p>
+									</header>
+								</article>
+							</section>
 
-        .selected {
-            background-color: #bdc3c7; /* Darker background for selected items */
-        }
+						<!-- Two -->
+							<section id="two">
+								<div class="inner">
+									<header class="major">
+										<h2>Curriculum Vitae</h2>
+									</header>
+									<p>Unveil the narrative of my professional story through a comprehensive resume, detailing a trajectory marked by valuable experiences, honed skills, and a commitment to excellence</p>
+									<ul class="actions">
+										<li><a href="landing.html" class="button next">Resume</a></li>
+									</ul>
+								</div>
+							</section>
 
-        button {
-            display: block;
-            margin: 20px auto;
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+					</div>
 
-        button:hover {
-            background-color: #2980b9;
-        }
+				<!-- Contact -->
+					<section id="contact">
+						<div class="inner">
+							<section>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name" />
+										</div>
+										<div class="field half">
+											<label for="email">Email</label>
+											<input type="text" name="email" id="email" />
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="6"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="reset" value="Clear" /></li>
+									</ul>
+								</form>
+							</section>
+							<section class="split">
+								<section>
+									<div class="contact-method">
+										<span class="icon solid alt fa-envelope"></span>
+										<h3>Email</h3>
+										<a href="#">wmksherwani@mun.ca</a>
+									</div>
+								</section>
+								<section>
+									<div class="contact-method">
+										<span class="icon solid alt fa-phone"></span>
+										<h3>Phone</h3>
+										<span>+1 (709) 327 5285</span>
+									</div>
+								</section>
+								<section>
+									<div class="contact-method">
+										<span class="icon solid alt fa-home"></span>
+										<h3>Address</h3>
+										<span>St. John's,<br />
+										Newfoundland and Labrador,<br />
+										Canada</span>
+									</div>
+								</section>
+							</section>
+						</div>
+					</section>
 
-        #exportedPages {
-            text-align: center;
-            padding: 20px;
-        }
-    </style>
-    <title>Dashboard Selection</title>
-</head>
-<body>
-    <h1>Select Pages from Dashboards to print :)</h1>
-    <ul id="dashboardList">
-        <script>
-            const names = [
-                "Area Manager Cover",
-                "Commissioning",
-                "Completions",
-                "Cost",
-                "Craft Hours and Cost Dashboard",
-                "Engineering",
-                "Human Resources",
-                "Indirect Craft Dashboard",
-                "Instruments",
-                "LPI",
-                "Procurement",
-                "Quality",
-                "Risk",
-                "Safety",
-                "Schedule",
-                "Spalling"
-            ];
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
 
-            const visuals = Visuals = [
-                ["Cover", "Agenda"],
-                ["Skyline Horizontal", "Page 1", "19W-01", "32W-01", "90W-01"],
-                [
-                    "Completions Checklist", "Roof Tracker", "Blockout Tracker", "Blockout Progress and Schedule", "Spalling Tracker", "Spalling Progress and Schedule", 
-                    "Core Drilling Tracker", "Sounding Tracker", "Grouting Tracker", "Sector 1", "Sector 2", "Sector 3", "Sector 4", "Sector 5", "Sector 6", "Sector 7",
-                    "Sector 8", "Sector 9", "Sector 10", "Sector 11", "Sector 12", "Sector 13", "Sector 14", "Sector 15", "Sector 16", "Sector 17", "Sector 18", "Sector 19",
-                    "Sector 20", "Sector 21", "Sector 22", "Sector 23", "Sector 24", "Tool Tip - Precast", "Tool Tip - Blockout", "Tool Tip - Coring", "Tool Tip - Grouting", "Page 1"
-                ],
-                ["Cost Parking Lot", "Cost Initiatives", "Actual Cost Details", "Page 1"],
-                ["Weekly MF Check Report", "Cost Code Book", "Cost Code Check", "Slip Actuals", "Spalling Actuals"],
-                ["Engineering - Parking Lot", "Permanent", "Temp Works"],
-                ["HR Dashboard", "Staff Recruitment", "Page 1", "HR Dashboard - Craft", "2022-2024 Headcount", "2024 Headcount"],
-                ["Weekly Report_Forecast", "Total Performance_CA3, Viewer", "Indirect Summary_Baseline", "Manager Summary_Forecast", "Manager Summary_Budget", "Weekly Report", "MEICA + Electrical", "Troubleshooting"],
-                ["Instruments by CGS Elevation", "Instruments by Cell  Location", "Tool Tip 1 - Instruments", "Tool Tip 2 - Instruments", "Page 1"],
-                [
-                    "LPI - Direct Scopes", "LPI - Indirect Scopes", "Blockout Tracker", "Precast Tracker", "Top of Shaft Tracker", "J-Tubes Tracker", "Decks Tracker", "LPI - Parking Lot", "Area Managers - LPI",
-                    "Tool Tip - Precast", "Tool Tip - Blockout", "Tool Tip - Spalling", "Area Managers - Baseline LPI", "Area Managers - Forecast LPI", "Discipline - Forecast LPI", "Activity Completed Previous Week"
-                ],
-                ["Procurement - Parking Lot", "Procurement", "Expediting Report"],
-                ["Quality Dashboard", "Area Managers Weekly Report", "Quality - Parking Lot", "Area Managers Bi-Weekly Report"],
-                ["Scorecard", "Risk - Parking Lot", "Risk", "ACTIONS"],
-                ["Safety Parking Lot", "Safety", "HAZID Report"],
-                ["Schedule - Parking Lot", "SDP Milestone Table", "Area Manager Milestone Table", "Histogram", "Headcount", "Absentee Report"],
-                ["Earned Value", "Spalling Tracker", "Tool Tip - Spalling"],
-            ];
+			</div>
 
-            const dashboardList = document.getElementById('dashboardList');
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
-            for (let i = 0; i < names.length; i++) {
-                const dashboard = document.createElement('li');
-                dashboard.innerHTML = `
-                    <input type="checkbox" id="dashboard${i}" class="dashboard" onclick="togglePages(${i})">
-                    <label for="dashboard${i}">${names[i]}</label>
-                    <ul id="pages${i}">
-                        ${visuals[i].map(page => `<li><input type="checkbox" class="page" value="${page}" onclick="handlePageClick(${i})">${page}</li>`).join('')}
-                    </ul>
-                `;
-                dashboardList.appendChild(dashboard);
-            }
-
-            function togglePages(dashboardIndex) {
-                const pages = document.querySelectorAll(`#pages${dashboardIndex} .page`);
-                const dashboardCheckbox = document.getElementById(`dashboard${dashboardIndex}`);
-
-                pages.forEach(page => {
-                    page.checked = dashboardCheckbox.checked;
-                });
-            }
-
-            function handlePageClick(dashboardIndex) {
-                const pages = document.querySelectorAll(`#pages${dashboardIndex} .page`);
-                const dashboardCheckbox = document.getElementById(`dashboard${dashboardIndex}`);
-
-                let allPagesSelected = true;
-
-                pages.forEach(page => {
-                    if (!page.checked) {
-                        allPagesSelected = false;
-                    }
-                });
-
-                dashboardCheckbox.checked = allPagesSelected;
-            }
-        </script>
-    </ul>
-
-    <button onclick="exportSelectedPages()">Export</button>
-    <button onclick="goToSendEmailPage()">Send Email</button>
-
-    <div id="exportedPages">
-        <!-- Display selected pages here -->
-    </div>
-
-    <script>
-        function exportSelectedPages() {
-            const selectedPages = [];
-            const pageCheckboxes = document.querySelectorAll('.page:checked');
-
-            pageCheckboxes.forEach(pageCheckbox => {
-                selectedPages.push(pageCheckbox.value);
-            });
-
-            fetch('/export', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    selected_pages: selectedPages
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data.message);
-            })
-            .catch(error => {
-                console.error('Error exporting PDFs:', error);
-            });
-
-            const exportedPagesElement = document.getElementById('exportedPages');
-            exportedPagesElement.innerHTML = `<p>Selected Pages: ${selectedPages.join(', ')}</p>`;
-        }
-
-        function startFlaskApp() {
-            fetch('/start_app', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({})
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data.message);
-            })
-            .catch(error => {
-                console.error('Error starting Flask app:', error);
-            });
-        }
-
-        function goToSendEmailPage() {
-            const filePath = 'file:///C:/Users/waleed.sherwani/Desktop/Export%20PDFs%20Directory/static/sendEmail.html';
-            window.location.href = filePath;
-        }
-    </script>
-</body>
+			<script>
+				document.addEventListener('DOMContentLoaded', function() {
+				  var options = {
+					strings: [
+						"Assalamu Alaikum, Welcome!",
+						"السلام عليكم، مرحبا بكم",
+						"السلام علیکم، خوش آمدید",
+						'阿萨拉姆阿莱科姆，欢迎！',  // Chinese (Simplified)
+						'Ассаламу Алейкум, Добро пожаловать!',  // Russian
+						'アッサラムアライクム、ようこそ！',  // Japanese
+						'안녕하세요, 환영합니다!',  // Korean
+						'Selamün Aleyküm, Hoşgeldiniz!',  // Turkish
+						'Ασσαλάμου Αλαϊκούμ, Καλώς ήρθατε!',  // Greek
+						'อัสสัลามู อะไหลคุม, ยินดีต้อนรับ!',  // Thai
+						'অসসালামু আলাইকুম, স্বাগত!',  // Bengali
+						'Ассаламу Алейкум, Добре дошли!',  // Bulgarian
+					],
+					typeSpeed: 25, // typing speed in milliseconds
+					backSpeed: 20, // backspacing speed in milliseconds
+					startDelay: 1000, // delay before starting to type
+					backDelay: 1000, // delay before starting to backspace
+					loop: true, // loop the animation
+					showCursor: false, // hide the typing cursor
+				  };
+			  
+				  var typed = new Typed('#welcome-text', options);
+				});
+			  </script>
+	</body>
 </html>
