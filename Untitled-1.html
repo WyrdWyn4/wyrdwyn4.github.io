@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahih al-Bukhari Information</title>
+</head>
+
+<body>
+    <div id="collectionInfo">
+        <h1>Loading...</h1>
+    </div>
+
+    <script>
+        const url = 'https://api.allorigins.win/get?url=' + encodeURIComponent('https://sunnah.com/bukhari');
+
+        async function fetchData() {
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                const html = data.contents;
+
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+
+                const collectionInfo = doc.querySelector('.collection_info');
+                const arabicTitle = collectionInfo.querySelector('.arabic').textContent;
+                const englishTitle = collectionInfo.querySelector('.english').textContent;
+
+                const collectionDescription = collectionInfo.nextElementSibling.textContent;
+
+                const displayInfo = document.getElementById('collectionInfo');
+                displayInfo.innerHTML = `
+                    <h1>${arabicTitle}</h1>
+                    <h2>${englishTitle}</h2>
+                    <p>${collectionDescription}</p>
+                `;
+            } catch (error) {
+                console.error('Error:', error.message);
+                const displayInfo = document.getElementById('collectionInfo');
+                displayInfo.innerHTML = '<h1>Error fetching data</h1>';
+            }
+        }
+
+        fetchData();
+    </script>
+</body>
+
+</html>
