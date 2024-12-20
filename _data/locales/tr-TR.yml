@@ -31,8 +31,8 @@ copyright:
   # Shown at the bottom of the post
   license:
     template: Bu gönderi :LICENSE_NAME lisansı altındadır.
-    name: CC BY 4.0
-    link: https://creativecommons.org/licenses/by/4.0/deed.tr
+    name: AGPL-3.0
+    link: https://www.gnu.org/licenses/agpl-3.0.htmldeed.tr
 
   # Displayed in the footer
   brief: Bazı hakları saklıdır.
