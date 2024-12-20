@@ -1,18 +1,18 @@
 <!-- The Side Bar -->
 
 <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
-  <header class="profile-wrapper">
-    <a href="{{ '/' | relative_url }}" id="avatar" class="rounded-circle">
+  <header class="profile-wrapper text-center">
+    <a href="{{ '/' | relative_url }}" id="avatar" class="rounded-circle d-block mx-auto">
       {%- if site.avatar != empty and site.avatar -%}
         {%- capture avatar_url -%}
           {% include media-url.html src=site.avatar %}
         {%- endcapture -%}
-        <img src="{{- avatar_url -}}" width="112" height="112" alt="avatar" onerror="this.style.display='none'">
+        <img src="{{- avatar_url -}}" width="112" height="112" alt="avatar" class="mx-auto d-block" onerror="this.style.display='none'">
       {%- endif -%}
     </a>
 
-    <a class="site-title d-block" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-    <p class="site-subtitle fst-italic mb-0">{{ site.tagline }}</p>
+    <a class="site-title d-block text-center" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <p class="site-subtitle fst-italic mb-0 text-center">{{ site.tagline }}</p>
   </header>
   <!-- .profile-wrapper -->
 
@@ -58,9 +58,8 @@
             https://{{ entry.type }}.com/{{ site[entry.type].username }}
           {%- endcapture -%}
         {% when 'email' %}
-          {% assign email = site.social.email | split: '@' %}
           {%- capture url -%}
-            javascript:location.href = 'mailto:' + ['{{ email[0] }}','{{ email[1] }}'].join('@')
+            mailto:{{ site.social.email }}
           {%- endcapture -%}
         {% when 'rss' %}
           {% assign url = '/feed.xml' | relative_url %}
