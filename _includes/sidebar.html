@@ -1,34 +1,36 @@
 <!-- The Side Bar -->
 
 <style>
-  #sidebar {
-    width: 350px; /* Open by default */
-    transition: width 0.5s;
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    z-index: 1000;
-  }
-  #hover-area {
-    position: fixed;
-    top: 0;
-    left: 100px;
-    width: 500px;
-    height: 100%;
-    z-index: 999;
-  }
-  .nav-link span {
-    display: inline; /* Ensure text is displayed */
-  }
-  .dark-mode .site-title,
-  .dark-mode .site-subtitle {
-    color: white;
-  }
-  .light-mode .site-title,
-  .light-mode .site-subtitle {
-    color: black;
+  @media (min-width: 1024px) and (min-height: 800px) {
+    #sidebar {
+      left: 18.2291667%; /* 1/3 of the screen width */
+      width: 18.2291667%; /* Open by default */
+      transition: width 0.5s;
+      overflow: hidden;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      z-index: 1000;
+    }
+    #hover-area {
+      position: fixed;
+      top: 0;
+      width: 33.33%; /* 1/3 of the screen width */
+      height: 100%;
+      z-index: 999;
+    }
+    .nav-link span {
+      display: inline; /* Ensure text is displayed */
+    }
+    .dark-mode .site-title,
+    .dark-mode .site-subtitle {
+      color: white;
+    }
+    .light-mode .site-title,
+    .light-mode .site-subtitle {
+      color: black;
+    }
   }
 </style>
 
@@ -150,17 +152,19 @@
 
   function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
-    if (sidebar.style.width === '350px') {
+    const sidebarWidth = window.innerWidth * 0.18; // 18% of screen width
+    if (sidebar.style.width >= `${sidebarWidth}px`) {
       sidebar.style.width = '0px';
     } else {
-      sidebar.style.width = '350px';
+      sidebar.style.width = `${sidebarWidth}px`;
     }
   }
 
   function handleScroll() {
     const sidebar = document.getElementById('sidebar');
+    const sidebarWidth = window.innerWidth * 0.18; // 18% of screen width
     if (window.scrollY === 0 || window.scrollY < lastScrollY) {
-      sidebar.style.width = '350px';
+      sidebar.style.width = `${sidebarWidth}px`;
     } else {
       sidebar.style.width = '0px';
     }
@@ -179,12 +183,14 @@
       });
     }
 
-    const hoverArea = document.getElementById('hover-area');
-    if (hoverArea) {
-      hoverArea.addEventListener('touchstart', toggleSidebar);
-      hoverArea.addEventListener('click', toggleSidebar);
-    }
+    if (window.innerWidth >= 1024 && window.innerHeight >= 800) {
+      const hoverArea = document.getElementById('hover-area');
+      if (hoverArea) {
+        hoverArea.addEventListener('touchstart', toggleSidebar);
+        hoverArea.addEventListener('click', toggleSidebar);
+      }
 
-    window.addEventListener('scroll', handleScroll);
+      window.addEventListener('scroll', handleScroll);
+    }
   });
 </script>
