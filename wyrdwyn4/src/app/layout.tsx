@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import BackToTop from "@/components/ui/back-to-top"; 
 
 const inter = Inter({ 
   subsets: ["latin"], 
@@ -11,8 +12,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "WyrdWyn.io | Creative Developer",
-  description: "Senior Computer Engineering Student Portfolio",
+  title: "Waleed Mannan Khan Sherwani",
+  description: "Senior Computer Engineering Student ",
 };
 
 export default function RootLayout({
@@ -27,6 +28,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <BackToTop />
         </div>
       </body>
     </html>
