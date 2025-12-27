@@ -508,7 +508,7 @@ export default function ValiantPage() {
                                 <Cpu size={24} />
                             </div>
                             <div>
-                                <h3 className="text-2xl font-bold text-white">Software Architecture (P-I-A)</h3>
+                                <h3 className="text-2xl font-bold text-white">Software Architecture</h3>
                                 <p className="text-sm text-gray-500 font-mono">The Tri-Layer Autonomous Stack</p>
                             </div>
                         </div>
