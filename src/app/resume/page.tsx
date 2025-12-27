@@ -2,114 +2,26 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import {
-    Check,
-    MessageSquare,
-    FileCode,
-    GitMerge,
-    GitBranch,
-    GitCommit,
-    ChevronDown,
-    Download,
-    Copy,
-    MoreHorizontal,
-    Paperclip,
-    Plus,
-    CircleDot,
-    Folder,
-    FileText,
-    Eye,
-    Filter
-} from "lucide-react";
+import { Check, MessageSquare, FileCode, GitMerge, GitBranch, GitCommit, ChevronDown, Download, Copy, MoreHorizontal, Paperclip, Plus, CircleDot, Folder, FileText, Eye, Filter } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type Tab = "conversation" | "commits" | "checks" | "files";
 
 const COMMITS = [
-    {
-        message: "Started Engineering Degree at MUN",
-        date: "Sep 1, 2022",
-        hash: "0a1b2c3",
-        author: "WyrdWyn4"
-    },
-    {
-        message: "Worked as Student Tutor at EO Success Centre",
-        date: "Sep 15, 2022",
-        hash: "j0k1l2m",
-        author: "WyrdWyn4"
-    },
-    {
-        message: "Worked as ISWEP Research Assistant",
-        date: "Jan 4, 2023",
-        hash: "f7g8h9i",
-        author: "WyrdWyn4"
-    },
-    {
-        message: "Worked as Robotics Research Intern",
-        date: "Jan 4, 2023",
-        hash: "b4c5d6e",
-        author: "WyrdWyn4"
-    },
-    {
-        message: "Joined BOTS - Bio-inspired Robotics Group",
-        date: "Feb 1, 2023",
-        hash: "x1y2z3a",
-        author: "WyrdWyn4"
-    },
-    {
-        message: "Joined CELC Committee as Director of Programming",
-        date: "Feb 1, 2023",
-        hash: "t8u9v0w",
-        author: "WyrdWyn4"
-    },
-    {
-        message: "Worked as Data Quality Assurance Analyst at MUN",
-        date: "May 1, 2023",
-        hash: "p5q6r7s",
-        author: "WyrdWyn4"
-    },
-    {
-        message: "Worked as Data Analytics and Project Control Intern at SDP-GP",
-        date: "Sep 1, 2023",
-        hash: "l2m3n4o",
-        author: "WyrdWyn4"
-    },
-    {
-        message: "Worked as Scientific Computing Research Assistant",
-        date: "Sep 5, 2023",
-        hash: "8i9j0k1",
-        author: "WyrdWyn4"
-    },
-    {
-        message: "Worked as Data Quality Specialist at SiftMed",
-        date: "May 1, 2024",
-        hash: "e5f6g7h",
-        author: "WyrdWyn4"
-    },
-    {
-        message: "Worked as Datalake Developer Intern at Nasdaq (Term 1)",
-        date: "May 6, 2024",
-        hash: "1b2c3d4",
-        author: "WyrdWyn4"
-    },
-    {
-        message: "Led Software Team at Valiant Aerotech",
-        date: "Sep 1, 2024",
-        hash: "5c4b3a2",
-        author: "WyrdWyn4"
-    },
-    {
-        message: "Returned as Datalake Developer Intern at Nasdaq (Term 2)",
-        date: "Jan 6, 2025",
-        hash: "a1b2c3d",
-        author: "WyrdWyn4"
-    },
-    {
-        message: "Started AI & Automation Developer Internship at Nasdaq",
-        date: "Sep 1, 2025",
-        hash: "9d8e7f6",
-        author: "WyrdWyn4"
-    }
+    { message: "Started Engineering Degree at MUN", date: "Sep 1, 2022", hash: "0a1b2c3", author: "WyrdWyn4" },
+    { message: "Worked as Student Tutor at EO Success Centre", date: "Sep 15, 2022", hash: "j0k1l2m", author: "WyrdWyn4" },
+    { message: "Worked as ISWEP Research Assistant", date: "Jan 4, 2023", hash: "f7g8h9i", author: "WyrdWyn4" },
+    { message: "Worked as Robotics Research Intern", date: "Jan 4, 2023", hash: "b4c5d6e", author: "WyrdWyn4" },
+    { message: "Joined BOTS - Bio-inspired Robotics Group", date: "Feb 1, 2023", hash: "x1y2z3a", author: "WyrdWyn4" },
+    { message: "Joined CELC Committee as Director of Programming", date: "Feb 1, 2023", hash: "t8u9v0w", author: "WyrdWyn4" },
+    { message: "Worked as Data Quality Assurance Analyst at MUN", date: "May 1, 2023", hash: "p5q6r7s", author: "WyrdWyn4" },
+    { message: "Worked as Data Analytics and Project Control Intern at SDP-GP", date: "Sep 1, 2023", hash: "l2m3n4o", author: "WyrdWyn4" },
+    { message: "Worked as Scientific Computing Research Assistant", date: "Sep 5, 2023", hash: "8i9j0k1", author: "WyrdWyn4" },
+    { message: "Worked as Data Quality Specialist at SiftMed", date: "May 1, 2024", hash: "e5f6g7h", author: "WyrdWyn4" },
+    { message: "Worked as Datalake Developer Intern at Nasdaq (Term 1)", date: "May 6, 2024", hash: "1b2c3d4", author: "WyrdWyn4" },
+    { message: "Led Software Team at Valiant Aerotech", date: "Sep 1, 2024", hash: "5c4b3a2", author: "WyrdWyn4" },
+    { message: "Returned as Datalake Developer Intern at Nasdaq (Term 2)", date: "Jan 6, 2025", hash: "a1b2c3d", author: "WyrdWyn4" },
+    { message: "Started AI & Automation Developer Internship at Nasdaq", date: "Sep 1, 2025", hash: "9d8e7f6", author: "WyrdWyn4" }
 ];
 
 const CHECKS = [
@@ -270,17 +182,7 @@ const CodeLine = ({ num, content, type = "neutral" }: { num: number, content: Re
     );
 };
 
-const TimelineItem = ({
-    icon,
-    children,
-    isLast = false,
-    pb = "pb-8"
-}: {
-    icon: React.ReactNode,
-    children: React.ReactNode,
-    isLast?: boolean,
-    pb?: string
-}) => {
+const TimelineItem = ({ icon, children, isLast = false, pb = "pb-8" }: { icon: React.ReactNode, children: React.ReactNode, isLast?: boolean, pb?: string }) => {
     return (
         <div className={cn("flex gap-3 relative", pb)}>
             {!isLast && (
@@ -324,9 +226,7 @@ export default function ResumePage() {
 
     return (
         <div className="min-h-screen bg-[#0d1117] text-[#c9d1d9] font-sans selection:bg-[#1f6feb] selection:text-white">
-
             <div className="max-w-[1280px] mx-auto pt-6 px-4 md:px-6 lg:px-8">
-
                 <div className="mb-4 border-b border-[#30363d] pb-2">
                     <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-2">
                         <div className="space-y-1 w-full">
@@ -412,7 +312,6 @@ export default function ResumePage() {
                 </div>
 
                 <div className={cn("grid gap-6 lg:gap-8", activeTab === "files" ? "grid-cols-1 lg:grid-cols-[280px_1fr]" : "grid-cols-1 lg:grid-cols-[1fr_296px]")}>
-
                     {activeTab === "files" && (
                         <div className="hidden lg:block">
                             <div className="sticky top-[140px] space-y-4">
@@ -422,7 +321,6 @@ export default function ResumePage() {
                     )}
 
                     <div className="min-w-0">
-
                         {activeTab === "conversation" && (
                             <div className="space-y-4">
                                 <div className="relative pl-12 md:pl-0">
@@ -444,14 +342,8 @@ export default function ResumePage() {
                                             </div>
                                         </div>
                                         <div className="p-4 text-sm leading-relaxed text-[#c9d1d9] bg-[#0d1117] rounded-b-md">
-                                            <p className="mb-4">
-                                                This PR updates the professional profile of Waleed Mannan Khan Sherwani. All relevant links are included for easy access to detailed information, along with a paper <a href="/media/personal/WMKSherwani%20-%20Resume.pdf" className="text-[#58a6ff] hover:underline">resume</a> on the <i>top right</i>.
-                                            </p>
-
-                                            <p className="mb-4">
-                                                Most sections contain links to detailed pages about each experience, project, or certification. Feel free to explore these links for more in-depth information.
-                                            </p>
-
+                                            <p className="mb-4">This PR updates the professional profile of Waleed Mannan Khan Sherwani. All relevant links are included for easy access to detailed information, along with a paper <a href="/media/personal/WMKSherwani%20-%20Resume.pdf" className="text-[#58a6ff] hover:underline">resume</a> on the <i>top right</i>.</p>
+                                            <p className="mb-4"> Most sections contain links to detailed pages about each experience, project, or certification. Feel free to explore these links for more in-depth information.</p>
                                             <h2 className="text-xl font-semibold text-[#c9d1d9] border-b border-[#30363d] pb-2 mb-2 mt-6">Work Experience:</h2>
                                             <div className="overflow-hidden rounded-md border border-[#30363d] mb-4">
                                                 <table className="w-full text-sm text-left text-[#c9d1d9]">
@@ -465,36 +357,28 @@ export default function ResumePage() {
                                                     <tbody className="divide-y divide-[#30363d] bg-[#0d1117]">
                                                         <tr className="group hover:bg-[#161b22] transition-colors">
                                                             <td className="px-3 py-2 border-r border-[#30363d] font-medium">
-                                                                <Link href="/work/nasdaq-verafin/ai-and-automation-developer-intern" className="hover:text-[#58a6ff] hover:underline">
-                                                                    AI & Automation Developer Intern
-                                                                </Link>
+                                                                <Link href="/work/nasdaq-verafin/ai-and-automation-developer-intern" className="hover:text-[#58a6ff] hover:underline">AI & Automation Developer Intern</Link>
                                                             </td>
                                                             <td className="px-3 py-2 border-r border-[#30363d]"><code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">Nasdaq</code></td>
                                                             <td className="px-3 py-2 text-[#8b949e] group-hover:text-[#c9d1d9]">Sep. 2025 - Present</td>
                                                         </tr>
                                                         <tr className="group hover:bg-[#161b22] transition-colors">
                                                             <td className="px-3 py-2 border-r border-[#30363d] font-medium">
-                                                                <Link href="/work/nasdaq-verafin/datalake-developer-intern" className="hover:text-[#58a6ff] hover:underline">
-                                                                    Datalake Developer Intern
-                                                                </Link>
+                                                                <Link href="/work/nasdaq-verafin/datalake-developer-intern" className="hover:text-[#58a6ff] hover:underline">Datalake Developer Intern</Link>
                                                             </td>
                                                             <td className="px-3 py-2 border-r border-[#30363d]"><code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">Nasdaq</code></td>
                                                             <td className="px-3 py-2 text-[#8b949e] group-hover:text-[#c9d1d9]">May. 2024 - Aug. 2024 & Jan. 2025 - Aug. 2025</td>
                                                         </tr>
                                                         <tr className="group hover:bg-[#161b22] transition-colors">
                                                             <td className="px-3 py-2 border-r border-[#30363d] font-medium">
-                                                                <Link href="/work/sdp-gp/data-analytics-and-project-control-intern" className="hover:text-[#58a6ff] hover:underline">
-                                                                    Software Team Lead
-                                                                </Link>
+                                                                <Link href="/work/sdp-gp/data-analytics-and-project-control-intern" className="hover:text-[#58a6ff] hover:underline">Software Team Lead</Link>
                                                             </td>
                                                             <td className="px-3 py-2 border-r border-[#30363d]"><code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">SDP-GP</code></td>
                                                             <td className="px-3 py-2 text-[#8b949e] group-hover:text-[#c9d1d9]">Sep. 2023 - Dec. 2023</td>
                                                         </tr>
                                                         <tr className="group hover:bg-[#161b22] transition-colors">
                                                             <td className="px-3 py-2 border-r border-[#30363d] font-medium">
-                                                                <Link href="/work/memorial-university-of-newfoundland/robotics-research-intern" className="hover:text-[#58a6ff] hover:underline">
-                                                                    Robotics Research Intern
-                                                                </Link>
+                                                                <Link href="/work/memorial-university-of-newfoundland/robotics-research-intern" className="hover:text-[#58a6ff] hover:underline">Robotics Research Intern</Link>
                                                             </td>
                                                             <td className="px-3 py-2 border-r border-[#30363d]"><code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">MUN</code></td>
                                                             <td className="px-3 py-2 text-[#8b949e] group-hover:text-[#c9d1d9]">Jan. 2023 - May. 2023</td>
@@ -515,14 +399,199 @@ export default function ResumePage() {
                                                     </thead>
                                                     <tbody className="divide-y divide-[#30363d] bg-[#0d1117]">
                                                         <tr className="group hover:bg-[#161b22] transition-colors">
-                                                            <td className="px-3 py-2 border-r border-[#30363d] font-medium">Software Team Lead</td>
-                                                            <td className="px-3 py-2 border-r border-[#30363d]">Valiant Aerotech</td>
-                                                            <td className="px-3 py-2 text-[#8b949e]">Sep. 2024 - Present</td>
+                                                            <td className="px-3 py-2 border-r border-[#30363d] font-medium">
+                                                                <Link href="/work/valiant-aerotech/software-team-lead" className="hover:text-[#58a6ff] hover:underline">Software Team Lead - Valiant Aerotech</Link>
+                                                            </td>
+                                                            <td className="px-3 py-2 border-r border-[#30363d]"><code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">SDH - MUN</code></td>
+                                                            <td className="px-3 py-2 text-[#8b949e] group-hover:text-[#c9d1d9]">Sep. 2024 - Present</td>
+                                                        </tr>
+                                                        <tr className="group hover:bg-[#161b22] transition-colors">
+                                                            <td className="px-3 py-2 border-r border-[#30363d] font-medium">
+                                                                <Link href="/work/memorial-university-of-newfoundland/scientific-computing-research-assistant" className="hover:text-[#58a6ff] hover:underline">Scientific Computing Research Assistant</Link>
+                                                            </td>
+                                                            <td className="px-3 py-2 border-r border-[#30363d]"><code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">Department of Chemistry - MUN</code></td>
+                                                            <td className="px-3 py-2 text-[#8b949e] group-hover:text-[#c9d1d9]">Sep. 2024 - Feb. 2024</td>
+                                                        </tr>
+                                                        <tr className="group hover:bg-[#161b22] transition-colors">
+                                                            <td className="px-3 py-2 border-r border-[#30363d] font-medium">
+                                                                <Link href="/work/siftmed/data-quality-specialist" className="hover:text-[#58a6ff] hover:underline">Data Quality Specialist</Link>
+                                                            </td>
+                                                            <td className="px-3 py-2 border-r border-[#30363d]"><code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">SiftMed</code></td>
+                                                            <td className="px-3 py-2 text-[#8b949e] group-hover:text-[#c9d1d9]">May. 2024 - Aug. 2024</td>
+                                                        </tr>
+                                                        <tr className="group hover:bg-[#161b22] transition-colors">
+                                                            <td className="px-3 py-2 border-r border-[#30363d] font-medium">
+                                                                <Link href="/work/memorial-university-of-newfoundland/data-quality-assurance-analyst" className="hover:text-[#58a6ff] hover:underline">Data Quality Assurance Analyst</Link>
+                                                            </td>
+                                                            <td className="px-3 py-2 border-r border-[#30363d]"><code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">Data and Image Analysis Group - MUN</code></td>
+                                                            <td className="px-3 py-2 text-[#8b949e] group-hover:text-[#c9d1d9]">May. 2023 - Sep. 2023</td>
+                                                        </tr>
+                                                        <tr className="group hover:bg-[#161b22] transition-colors">
+                                                            <td className="px-3 py-2 border-r border-[#30363d] font-medium">
+                                                                <Link href="/work/memorial-university-of-newfoundland/iswep-research-assistant" className="hover:text-[#58a6ff] hover:underline">ISWEP Research Assistant</Link>
+                                                            </td>
+                                                            <td className="px-3 py-2 border-r border-[#30363d]"><code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">Graduate Office - MUN</code></td>
+                                                            <td className="px-3 py-2 text-[#8b949e] group-hover:text-[#c9d1d9]">Jan. 2023 - May. 2023</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
+
+                                            <h2 className="text-xl font-semibold text-[#c9d1d9] border-b border-[#30363d] pb-2 mb-2 mt-6">Projects:</h2>
+                                            <ul className="list-disc pl-5 mb-4 space-y-1 text-[#c9d1d9]">
+                                                <li>
+                                                    <Link href="/projects/trip-tailor" className="hover:text-[#58a6ff] hover:underline font-semibold">
+                                                        TripTailor
+                                                    </Link>
+                                                    {" "}
+                                                    <code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">Go</code><i>|</i>
+                                                    <code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">JavaScript</code><i>|</i>
+                                                    <code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">Docker</code><i>|</i>
+                                                    <code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">PostgreSQL</code>
+                                                </li>
+                                                <li>
+                                                    <Link href="/projects/spenditure" className="hover:text-[#58a6ff] hover:underline font-semibold">
+                                                        Spenditure
+                                                    </Link>
+                                                    {" "}
+                                                    <code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">Java</code><i>|</i>
+                                                    <code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">JavaFX</code><i>|</i>
+                                                    <code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">Tesseract</code><i>|</i>
+                                                    <code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">Gradle</code><i>|</i>
+                                                    <code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">PostgreSQL</code>
+                                                </li>
+                                                <li>
+                                                    <Link href="/projects/fsm-traffic-light" className="hover:text-[#58a6ff] hover:underline font-semibold">
+                                                        FSM Traffic Light Controller Design
+                                                    </Link>
+                                                    {" "}
+                                                    <code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">Digital Logic</code><i>|</i>
+                                                    <code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">ATmega32</code><i>|</i>
+                                                    <code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">Assembly</code>
+                                                </li>
+                                                <li>
+                                                    <Link href="/projects/alu" className="hover:text-[#58a6ff] hover:underline font-semibold">
+                                                        Arithmetic Logic Unit (ALU)
+                                                    </Link>
+                                                    {" "}
+                                                    <code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">Digital Logic</code><i>|</i>
+                                                    <code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">MATLAB</code><i>|</i>
+                                                    <code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">Simulink</code><i>|</i>
+                                                    <code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">Integrated Circuits</code>
+                                                </li>
+                                                <li>
+                                                    <Link href="/projects/online-transaction-parser" className="hover:text-[#58a6ff] hover:underline font-semibold">
+                                                        Online Transaction Parser
+                                                    </Link>
+                                                    {" "}
+                                                    <code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">Python</code><i>|</i>
+                                                    <code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">Selenium</code><i>|</i>
+                                                    <code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">Requests</code><i>|</i>
+                                                    <code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">Pandas</code>
+                                                </li>
+                                                <li>
+                                                    <Link href="/projects/whatsapp-automation" className="hover:text-[#58a6ff] hover:underline font-semibold">
+                                                        WhatsApp Message Automation
+                                                    </Link>
+                                                    {" "}
+                                                    <code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">Python</code><i>|</i>
+                                                    <code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">Pyautogui</code><i>|</i>
+                                                    <code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">Pywinauto</code>
+                                                </li>
+                                                <li>
+                                                    <Link href="/projects/tic-tac-toe" className="hover:text-[#58a6ff] hover:underline font-semibold">
+                                                        Tic Tac Toe Game
+                                                    </Link>
+                                                    {" "}
+                                                    <code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">Python</code>
+                                                </li>
+                                            </ul>
+
+                                            <h2 className="text-xl font-semibold text-[#c9d1d9] border-b border-[#30363d] pb-2 mb-2 mt-6">Certifications:</h2>
+                                            <div className="overflow-hidden rounded-md border border-[#30363d] mb-4">
+                                                <table className="w-full text-sm text-left text-[#c9d1d9]">
+                                                    <thead className="bg-[#161b22] border-b border-[#30363d] font-semibold text-[#c9d1d9]">
+                                                        <tr>
+                                                            <th className="px-3 py-2 border-r border-[#30363d]">Name</th>
+                                                            <th className="px-3 py-2 border-r border-[#30363d]">Date</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody className="divide-y divide-[#30363d] bg-[#0d1117]">
+                                                        <tr className="group hover:bg-[#161b22] transition-colors">
+                                                            <td className="px-3 py-2 border-r border-[#30363d] font-medium">
+                                                                <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/RZDBPXCLLYG8" target="_blank" className="hover:text-[#58a6ff] hover:underline">
+                                                                    Google Advanced Data Analytics
+                                                                </a>
+                                                            </td>
+                                                            <td className="px-3 py-2 text-[#8b949e] group-hover:text-[#c9d1d9]">Sep. 2023</td>
+                                                        </tr>
+                                                        <tr className="group hover:bg-[#161b22] transition-colors">
+                                                            <td className="px-3 py-2 border-r border-[#30363d] font-medium">
+                                                                <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/KQMM7EUKHZY9" target="_blank" className="hover:text-[#58a6ff] hover:underline">
+                                                                    Google Data Analytics
+                                                                </a>
+                                                            </td>
+                                                            <td className="px-3 py-2 text-[#8b949e] group-hover:text-[#c9d1d9]">Jan. 2023</td>
+                                                        </tr>
+                                                        <tr className="group hover:bg-[#161b22] transition-colors">
+                                                            <td className="px-3 py-2 border-r border-[#30363d] font-medium">
+                                                                <p>Onshape Fundamentals: CAD Learning Pathway Completion</p>
+                                                            </td>
+                                                            <td className="px-3 py-2 text-[#8b949e] group-hover:text-[#c9d1d9]">Jan. 2023</td>
+                                                        </tr>
+                                                        <tr className="group hover:bg-[#161b22] transition-colors">
+                                                            <td className="px-3 py-2 border-r border-[#30363d] font-medium">
+                                                                <a href="https://credentials.techstewardship.com/en/verify/28211210575246" target="_blank" className="hover:text-[#58a6ff] hover:underline">
+                                                                    Tech Stewardship Practice Program (TSPP)
+                                                                </a>
+                                                            </td>
+                                                            <td className="px-3 py-2 text-[#8b949e] group-hover:text-[#c9d1d9]">Dec. 2023</td>
+                                                        </tr>
+                                                        <tr className="group hover:bg-[#161b22] transition-colors">
+                                                            <td className="px-3 py-2 border-r border-[#30363d] font-medium">
+                                                                <p>Workplace Hazardous Materials Information System (WHMIS)</p>
+                                                            </td>
+                                                            <td className="px-3 py-2 text-[#8b949e] group-hover:text-[#c9d1d9]">Aug. 2022</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <h2 className="text-xl font-semibold text-[#c9d1d9] border-b border-[#30363d] pb-2 mb-2 mt-6">Extra Curricular Experience:</h2>
+                                            <div className="overflow-hidden rounded-md border border-[#30363d] mb-4">
+                                                <table className="w-full text-sm text-left text-[#c9d1d9]">
+                                                    <thead className="bg-[#161b22] border-b border-[#30363d] font-semibold text-[#c9d1d9]">
+                                                        <tr>
+                                                            <th className="px-3 py-2 border-r border-[#30363d]">Role</th>
+                                                            <th className="px-3 py-2 border-r border-[#30363d]">Entity</th>
+                                                            <th className="px-3 py-2">Date</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody className="divide-y divide-[#30363d] bg-[#0d1117]">
+                                                        <tr className="group hover:bg-[#161b22] transition-colors">
+                                                            <td className="px-3 py-2 border-r border-[#30363d] font-medium">Embedded Systems & Hardware Testing Volunteer</td>
+                                                            <td className="px-3 py-2 border-r border-[#30363d]"><code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">MetaCrust Services</code></td>
+                                                            <td className="px-3 py-2 text-[#8b949e] group-hover:text-[#c9d1d9]">Dec. 2025 - Present</td>
+                                                        </tr>
+                                                        <tr className="group hover:bg-[#161b22] transition-colors">
+                                                            <td className="px-3 py-2 border-r border-[#30363d] font-medium">Director of Programming</td>
+                                                            <td className="px-3 py-2 border-r border-[#30363d]"><code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">CELC 2024 Committee - MUN</code></td>
+                                                            <td className="px-3 py-2 text-[#8b949e] group-hover:text-[#c9d1d9]">Feb. 2023 - Sep. 2023</td>
+                                                        </tr>
+                                                        <tr className="group hover:bg-[#161b22] transition-colors">
+                                                            <td className="px-3 py-2 border-r border-[#30363d] font-medium">BOTS - Bio-inspired Robotics Group</td>
+                                                            <td className="px-3 py-2 border-r border-[#30363d]"><code className="bg-[#6e7681]/40 px-1 py-0.5 rounded text-xs">Department of Computer Science - MUN</code></td>
+                                                            <td className="px-3 py-2 text-[#8b949e] group-hover:text-[#c9d1d9]">Feb. 2023 - May. 2023</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
                                         </div>
+
+
+
+
 
                                         <div className="border-t border-[#30363d] px-4 py-2 flex items-center gap-2">
                                             <div className="border border-[#30363d] rounded-full bg-[#161b22] px-2 py-0.5 flex items-center gap-1 cursor-pointer hover:bg-[#30363d] transition-colors">
@@ -538,7 +607,6 @@ export default function ResumePage() {
                                 </div>
 
                                 <div className="relative pl-0 md:pl-0 pb-4 mt-6">
-
                                     <TimelineItem
                                         icon={
                                             <div className="w-8 h-8 rounded-full bg-[#8250df] flex items-center justify-center border-[4px] border-[#0d1117] relative -ml-1">
